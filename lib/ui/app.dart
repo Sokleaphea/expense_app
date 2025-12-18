@@ -1,6 +1,7 @@
 import 'package:expense_tracker/models/expense.dart';
 import 'package:expense_tracker/ui/expenses/expenses.dart';
 import 'package:flutter/material.dart';
+import 'package:expense_tracker/ui/expenses/expense_summary.dart';
 
 import 'expenses/expense_form.dart';
 
@@ -53,7 +54,13 @@ class _AppState extends State<App> {
         backgroundColor: Colors.blue[700],
         title: const Text('Ronan-The-Best Expenses App'),
       ),
-      body: ExpensesView(expenses: _expenses),
+      // body: ExpensesView(expenses: _expenses),
+      body: Column(
+        children: [
+          StatisticCard(expenses: _expenses),
+          Expanded(child: ExpensesView(expenses: _expenses))
+        ],
+      ),
     );
   }
 }
